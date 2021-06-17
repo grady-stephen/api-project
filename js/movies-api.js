@@ -1,15 +1,22 @@
 "use strict";
-function getMovies() {
-    $.ajax({
-        url:'https://glitch.com/capable-habitual-contraption.me/movies',
-        type: "GET",
-        data: {
+$("#loading-pic").hide();
 
-        },
-        success: function (data){
-        console.log(data)
-    }}
-)}
+function getMovies() {
+    $("#loading-pic").show();
+    $.ajax({
+            url: 'https://capable-habitual-contraption.glitch.me/movies',
+            type: "GET",
+            data: {},
+            success: function (data) {
+                console.log(data)
+            },
+            complete: function () {
+                $("#loading-pic").hide();
+            }
+
+        }
+    )
+}
 
 getMovies()
 
