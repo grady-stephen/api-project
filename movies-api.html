@@ -10,6 +10,7 @@
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
               crossorigin="anonymous">
         <link rel="stylesheet" href="css/movies-api.css">
+
     </head>
     <body>
         <h1 class="display-2 text-center">Movies</h1>
@@ -20,7 +21,7 @@
         <div id="poster">
 
         </div>
-        <div>
+        <div id="form-container" class="bg-light">
             <label for="titleInput" class="form-label display-6">Add your own movie:</label>
             <div class="input-group mb-3">
                 <span class="input-group-text">Title:</span>
@@ -37,31 +38,35 @@
                     <option value="3">3/5</option>
                     <option value="4">4/5</option>
                     <option value="5">5/5</option>
-
                 </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Actors:</span>
+                <input type="text" class="form-control" id="actors-input" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Director(s):</span>
+                <input type="text" class="form-control" id="directorInput" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Plot:</span>
+                <input type="text" class="form-control" id="plotInput" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Release:</span>
+                <input type="text" class="form-control" id="releaseInput" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Genre:</span>
+                <input type="text" class="form-control" id="genreInput" aria-describedby="basic-addon3">
             </div>
             <button id="addMovie" class="btn btn-outline-secondary" type="button">Submit</button>
         </div>
-
-        <!--        <h1 class="display-6 text-center">title extra long</h1>-->
-        <!--        <h1 class="display-6 text-center">5/5 stars</h1>-->
-        <!--        <div class="border m-auto" style="width: 300px; height: 500px;">-->
-        <!--            <div class="my-4 mx-2 innerText"> <strong>Released:</strong> 2001 </div>-->
-        <!--            <div class="my-4 mx-2 innerDescription"> <strong>Description:</strong> 160 elite U.S. soldiers drop into Somalia to capture two top lieutenants of a renegade-->
-        <!--                           warlord and find themselves in a desperate battle with a large force of heavily-armed-->
-        <!--                           Somalis.-->
-        <!--            </div>-->
-        <!--            <div class="my-4 mx-2 innerText"><strong>Directed by:</strong> Ridley Scott,</div>-->
-        <!--            <div class="my-4 mx-2 innerText"><strong>Actors:</strong> Josh Hartnett, Ewan McGregor, Tom Sizemore, Eric Bana</div>-->
-        <!--            <div class="my-4 mx-2 innerText"><strong>Genres:</strong> Drama, History, War</div>-->
-
-        <!--        </div>-->
-
-
         <script src="lib/jquery-2.2.4.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-                crossorigin="anonymous"></script>
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
         <script src="js/movies-api.js"></script>
     </body>
 </html>

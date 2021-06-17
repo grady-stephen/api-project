@@ -9,3 +9,7 @@
 .innerDescription {
     font-size: 15px;
 }
+
+#form-container{
+    display: none;
+}
