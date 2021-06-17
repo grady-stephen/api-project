@@ -29,12 +29,13 @@ function sortData(data) {
 
 function appendMovies(movie) {
     $("#poster").append(`<div id="movie-${movie.id}"><img src=${movie.poster} class="moviePictures"></div>`);
-    $(`#movie-${movie.id}`).append(`<div class="movieDescription">
+    $(`#movie-${movie.id}`).click(function (){
+        $(`#movie-${movie.id}`).html(`<div class="movieDescription">
         <h1 class="display-6 text-center">${(movie.title).toUpperCase()}</h1>
         <h1 class="display-6 text-center">${movie.rating}/5 Stars</h1>
         <div class="border m-auto" style="width: 300px; height: 500px;">
             <div class="my-4 mx-2 innerText"> <strong>Released:</strong> ${movie.year} </div>
-            <div class="my-4 mx-2 innerDescription"> <strong>Description:</strong> 1${movie.plot}
+            <div class="my-4 mx-2 innerDescription"> <strong>Description:</strong> ${movie.plot}
             </div>
             <div class="my-4 mx-2 innerText"><strong>Directed by:</strong>${movie.director}</div>
             <div class="my-4 mx-2 innerText"><strong>Actors:</strong> ${movie.actors}</div>
@@ -42,6 +43,29 @@ function appendMovies(movie) {
 
         </div>
         </div>`)
+    })
+    $(`#movie-${movie.id}`).unbind("click")
+    revertClick(movie)
+    // $(`#movie-2${movie.id}`).off("click")
+    // console.log($(`#movie-${movie.id}`).contains(document.getElementsByTagName("img")));
 }
 
+function revertClick(movie){
+    $(`#movie-${movie.id}`).click(function (){
+        $(`#movie-${movie.id}`).html(`<img src=${movie.poster} class="moviePictures">`)
+    })
+}
 
+// (`<div class="movieDescription">
+//         <h1 class="display-6 text-center">${(movie.title).toUpperCase()}</h1>
+//         <h1 class="display-6 text-center">${movie.rating}/5 Stars</h1>
+//         <div class="border m-auto" style="width: 300px; height: 500px;">
+//             <div class="my-4 mx-2 innerText"> <strong>Released:</strong> ${movie.year} </div>
+//             <div class="my-4 mx-2 innerDescription"> <strong>Description:</strong> 1${movie.plot}
+//             </div>
+//             <div class="my-4 mx-2 innerText"><strong>Directed by:</strong>${movie.director}</div>
+//             <div class="my-4 mx-2 innerText"><strong>Actors:</strong> ${movie.actors}</div>
+//             <div class="my-4 mx-2 innerText"><strong>Genres:</strong> ${movie.genre}</div>
+//
+//         </div>
+//         </div>`)
