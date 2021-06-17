@@ -12,28 +12,50 @@
         <link rel="stylesheet" href="css/movies-api.css">
     </head>
     <body>
-                <h1 class="display-2 text-center">Movies</h1>
-                <div  class="d-flex justify-content-center">
-                <img id="loading-pic" src="assets/loading.gif">
-                </div>
+        <h1 class="display-2 text-center">Movies</h1>
+        <div class="d-flex justify-content-center">
+            <img id="loading-pic" src="assets/loading.gif">
+        </div>
 
-                <div id="poster">
+        <div id="poster">
 
-                </div>
+        </div>
+        <div>
+            <label for="titleInput" class="form-label display-6">Add your own movie:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Title:</span>
+                <input type="text" class="form-control" id="titleInput" aria-describedby="basic-addon3">
+            </div>
 
-<!--        <h1 class="display-6 text-center">title extra long</h1>-->
-<!--        <h1 class="display-6 text-center">5/5 stars</h1>-->
-<!--        <div class="border m-auto" style="width: 300px; height: 500px;">-->
-<!--            <div class="my-4 mx-2 innerText"> <strong>Released:</strong> 2001 </div>-->
-<!--            <div class="my-4 mx-2 innerDescription"> <strong>Description:</strong> 160 elite U.S. soldiers drop into Somalia to capture two top lieutenants of a renegade-->
-<!--                           warlord and find themselves in a desperate battle with a large force of heavily-armed-->
-<!--                           Somalis.-->
-<!--            </div>-->
-<!--            <div class="my-4 mx-2 innerText"><strong>Directed by:</strong> Ridley Scott,</div>-->
-<!--            <div class="my-4 mx-2 innerText"><strong>Actors:</strong> Josh Hartnett, Ewan McGregor, Tom Sizemore, Eric Bana</div>-->
-<!--            <div class="my-4 mx-2 innerText"><strong>Genres:</strong> Drama, History, War</div>-->
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="ratingInput">Rating:</label>
+                <select class="form-select" id="ratingInput">
+                    <option selected>Choose...</option>
+                    <option value="0">0/5</option>
+                    <option value="1">1/5</option>
+                    <option value="2">2/5</option>
+                    <option value="3">3/5</option>
+                    <option value="4">4/5</option>
+                    <option value="5">5/5</option>
 
-<!--        </div>-->
+                </select>
+            </div>
+            <button id="addMovie" class="btn btn-outline-secondary" type="button">Submit</button>
+        </div>
+
+        <!--        <h1 class="display-6 text-center">title extra long</h1>-->
+        <!--        <h1 class="display-6 text-center">5/5 stars</h1>-->
+        <!--        <div class="border m-auto" style="width: 300px; height: 500px;">-->
+        <!--            <div class="my-4 mx-2 innerText"> <strong>Released:</strong> 2001 </div>-->
+        <!--            <div class="my-4 mx-2 innerDescription"> <strong>Description:</strong> 160 elite U.S. soldiers drop into Somalia to capture two top lieutenants of a renegade-->
+        <!--                           warlord and find themselves in a desperate battle with a large force of heavily-armed-->
+        <!--                           Somalis.-->
+        <!--            </div>-->
+        <!--            <div class="my-4 mx-2 innerText"><strong>Directed by:</strong> Ridley Scott,</div>-->
+        <!--            <div class="my-4 mx-2 innerText"><strong>Actors:</strong> Josh Hartnett, Ewan McGregor, Tom Sizemore, Eric Bana</div>-->
+        <!--            <div class="my-4 mx-2 innerText"><strong>Genres:</strong> Drama, History, War</div>-->
+
+        <!--        </div>-->
 
 
         <script src="lib/jquery-2.2.4.js"></script>
