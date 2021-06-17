@@ -9,6 +9,7 @@ function getMovies() {
             data: {},
             success: function (data) {
                 console.log(data)
+                getPoster(data)
             },
             complete: function () {
                 $("#loading-pic").hide();
@@ -20,22 +21,15 @@ function getMovies() {
 
 getMovies()
 
+function getPoster(data) {
+    data.forEach(function (movie){
+        console.log(movie)
+        appenedPoster(movie.poster)
+    })
+}
 
-// console.log($.ajax('https://glitch.com/capable-habitual-contraption.me/movies'))
+function appenedPoster(url) {
+    $("#poster").append(`<img src=${url} class="moviePictures">`)
+}
 
-// function getForecast(coordinates) {
-//     $.ajax({
-//         url:"http://api.openweathermap.org/data/2.5/forecast",
-//         type: "GET",
-//         data: {
-//             APPID: OPEN_WEATHERMAP_TOKEN,
-//             lat: coordinates[1],
-//             lon: coordinates[0],
-//             units: "imperial",
-//         },
-//         success:function (data){
-//             buildForecast(getFiveDayForecast(data.list));
-//
-//         }
-//     })
-// }
+
