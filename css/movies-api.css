@@ -2,3 +2,10 @@
     max-width: 300px;
     height: auto;
 }
+
+.innerText {
+    font-size: 15px;
+}
+.innerDescription {
+    font-size: 15px;
+}
