@@ -13,19 +13,26 @@
 
     </head>
     <body>
-        <h1 class="display-2 text-center">Movies</h1>
+        <nav class="navbar">
+            <div class="w-100">
+                <div id="topHeader" class="display-4 text-center">
+                <img id="sunsetImg" src="assets/lqk7sj.svg"> Sunset Movie Reviews
+                </div>
+            </div>
+        </nav>
+
         <div class="d-flex justify-content-center">
             <img id="loading-pic" src="assets/loading.gif">
         </div>
 
-        <div id="poster">
+        <div id="poster" class="row justify-content-center">
 
         </div>
-
-        <button id="startAddMovie" class="btn btn-outline-secondary" type="button">Add Movie:</button>
-
-        <div id="form-container" class="bg-light">
-            <label for="titleInput" id="formTitle" class="form-label display-6">Add your own movie:</label>
+        <div class="w-100 d-flex justify-content-center align-items-center">
+        <button id="startAddMovie" class="btn text-white mx-auto my-3" type="button">Add Movie:</button>
+        </div>
+        <div id="form-container" class="m-4">
+            <label for="titleInput" id="formTitle" class="form-label display-6"><strong>Add your own movie:</strong></label>
             <div class="input-group mb-3">
                 <span class="input-group-text">Title:</span>
                 <input type="text" class="form-control"  id="titleInput" aria-describedby="basic-addon3">
@@ -64,8 +71,10 @@
                 <span class="input-group-text">Genre:</span>
                 <input type="text" class="form-control" id="genreInput" aria-describedby="basic-addon3">
             </div>
-            <button id="putBtn" class="btn btn-outline-secondary" type="button">Save</button>
-            <button id="addBtn" class="btn btn-outline-secondary" type="button">Submit</button>
+            <div class="d-flex justify-content-center">
+            <button id="putBtn" class="btn text-white m-auto" type="button">Save</button>
+            <button id="addBtn" class="btn text-white m-auto" type="button">Submit</button>
+            </div>
 
         </div>
         <script src="lib/jquery-2.2.4.js"></script>

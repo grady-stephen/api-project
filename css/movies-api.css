@@ -19,3 +19,49 @@
 #addBtn{
     display: none;
 }
+.pictureBorder{
+    border: 2px solid #72147E!important;
+    background-image: linear-gradient(#FA9905, #FF5200);
+}
+.movieDescription {
+    margin: 40px 0;
+}
+
+body {
+    /*background-color: #FA9905;*/
+    background-image: linear-gradient(#F21170, #FA9905 );
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #F21170;
+    border: 2px solid #72147E;
+}
+#sunsetImg {
+    max-width: 80px;
+    height: auto;
+}
+#topHeader {
+    /*background-image: linear-gradient(#72147E, #F21170);*/
+    color: white;
+    text-align: center;
+
+}
+#startAddMovie{
+    margin: 0px auto 50px auto;
+}
+.form-select {
+    width: 77% !important;
+}
+.input-group-text {
+    background-color: #72147E !important;
+    color: white !important;
+    border: none;
+
+}
+.movieTitle {
+    color: white;
+}
+.movieRating {
+    color: white;
+}
