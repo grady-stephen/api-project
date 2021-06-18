@@ -60,7 +60,6 @@ function firstClick(movie){
 </div>
 `)
         addEditBtn(movie);
-        addDeleteBtn();
         $(this).off("click");
 
         revertClick(movie);
@@ -133,11 +132,9 @@ function putData(movie){
     })
 
 }
-
-
-
-    function addDeleteBtn(){
-        $('.deleteBtn').click(function (){
+addAddBtn()
+    function addAddBtn(){
+        $('#startAddMovie').click(function (){
             $('#form-container').show();
             scrollToTarget();
 
@@ -180,4 +177,8 @@ function putData(movie){
         }
         putData(movie)
     })
+    }
+
+    function buildAddForm () {
+
     }
