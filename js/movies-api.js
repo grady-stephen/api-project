@@ -59,6 +59,7 @@ function firstClick(movie){
             <button id="delete-btn-${movie.id}" class="deleteBtn">Delete</button>
 </div>
 `)
+        addDeleteBtn(movie);
         addEditBtn(movie);
         $(this).off("click");
 
@@ -89,14 +90,11 @@ function getFormData(){
         postData(object);
     })
 }
-function postData(object){
+function postData(movie){
     $.ajax({
         url: 'https://capable-habitual-contraption.glitch.me/movies',
         type: "POST",
-        data: {
-            title: object.title,
-            rating: object.rating,
-        },
+        data: movie,
         success: function (data) {
             getMovies();
             console.log(data);
@@ -120,7 +118,7 @@ function scrollToTarget() {
 
 
 function putData(movie){
-
+    console.log(movie)
     $.ajax({
         url: `https://capable-habitual-contraption.glitch.me/movies/${movie.id}`,
         type: "PUT",
@@ -137,10 +135,31 @@ addAddBtn()
         $('#startAddMovie').click(function (){
             $('#form-container').show();
             scrollToTarget();
-
+            buildAddForm()
         })
-
     }
+
+    function addDeleteBtn (movie) {
+    $(".deleteBtn").click(function (){
+        if (confirm("Are you sure you want to delete?")){
+        deleteMovie(movie)
+        }
+    })
+    }
+    function deleteMovie (movie){
+        $.ajax({
+            url: `https://capable-habitual-contraption.glitch.me/movies/${movie.id}`,
+            type: "DELETE",
+            success: function () {
+                   getMovies()
+            },
+
+            }
+
+        )}
+
+
+
     function addEditBtn (movie){
         $('.editBtn').click(function (){
             $('#form-container').show();
@@ -160,11 +179,12 @@ addAddBtn()
         $("#plotInput").val( `${movie.plot}`);
         $("#releaseInput").val( `${movie.year}`);
         $("#genreInput").val( `${movie.genre}`);
-        buildPutMovie();
-
+        buildPutMovie(movie.id);
+        $("#putBtn").show()
     }
 
-    function buildPutMovie(){
+    function buildPutMovie(id){
+    $("#putBtn").off("click")
     $("#putBtn").click(function(){
         let movie = {
             title: $("#titleInput").val(),
@@ -174,11 +194,53 @@ addAddBtn()
             plot: $("#plotInput").val(),
             year: $("#releaseInput").val(),
             genre: $("#genreInput").val(),
+            id:id,
         }
         putData(movie)
+        $("#putBtn").hide()
+        clearForm()
     })
     }
 
     function buildAddForm () {
-
+        $("#submitForm").attr('id', "addBtn");
+        $("#titleInput").val("");
+        $("#ratingInput").find(`#valueChoose`).attr('selected', "selected");
+        $("#actors-input").val("");
+        $("#directorInput").val("");
+        $("#plotInput").val("");
+        $("#releaseInput").val("");
+        $("#genreInput").val("");
+        buildAddMovie()
+        $("#putBtn").hide()
+        $("#addBtn").show()
     }
+
+    function buildAddMovie() {
+        $("#addBtn").off("click")
+        $("#addBtn").click(function(){
+            let movie = {
+                title: $("#titleInput").val(),
+                rating: $("#ratingInput").val(),
+                actors: $("#actors-input").val(),
+                director: $("#directorInput").val(),
+                plot: $("#plotInput").val(),
+                year: $("#releaseInput").val(),
+                genre: $("#genreInput").val(),
+            }
+            postData(movie)
+            $("#addBtn").hide()
+            clearForm()
+        })
+}
+
+function clearForm() {
+        $("#titleInput").val("");
+        $("#ratingInput").find(`#valueChoose`).attr('selected', "selected");
+        $("#actors-input").val("");
+        $("#directorInput").val("");
+        $("#plotInput").val("");
+        $("#releaseInput").val("");
+        $("#genreInput").val("");
+        $('#form-container').hide(500)
+}
