@@ -1,7 +1,4 @@
-.moviePictures {
-    max-width: 300px;
-    height: auto;
-}
+
 
 .innerText {
     font-size: 15px;
@@ -20,11 +17,18 @@
     display: none;
 }
 .pictureBorder{
+    width: 75%;
+    height: 50%;
     border: 2px solid #72147E!important;
     background-image: linear-gradient(#FA9905, #FF5200);
 }
 .movieDescription {
     margin: 40px 0;
+}
+.moviePictures {
+    width: 60%;
+    height: 100%;
+
 }
 
 body {

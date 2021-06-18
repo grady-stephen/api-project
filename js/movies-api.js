@@ -40,26 +40,26 @@ function appendMovies(movie) {
 
 }
 function firstClick(movie){
-    $(`#movie-${movie.id}`).attr('class', 'my-5 col-12 col-md-6');
+    $(`#movie-${movie.id}`).attr('class', 'my-5 col-12 col-md-6 d-flex justify-content-around');
     $(`#movie-${movie.id} *:first-child`).first().click(function (){
-        $(`#movie-${movie.id}`).html(`<div class="movieDescription">
-        <h1 class="display-6 text-center movieTitle">${(movie.title).toUpperCase()}</h1>
-        <h1 class="display-6 text-center movieRating">${movie.rating}/5 Stars</h1>
-        <div class="pictureBorder m-auto" style="width: 300px; height: 500px;">
-            <div class="my-4 mx-2 innerText movieRelease"> <strong>Released:</strong> ${movie.year} </div>
-            <div class="my-4 mx-2 innerDescription"> <strong>Description:</strong> ${movie.plot}
+        $(`#movie-${movie.id}`).html(`
+        <div class="movieDescription">
+            <h1 class="display-6 text-center movieTitle">${(movie.title).toUpperCase()}</h1>
+            <h1 class="display-6 text-center movieRating">${movie.rating}/5 Stars</h1>
+            <div class="pictureBorder m-auto">
+                <div class="my-4 mx-2 innerText movieRelease"> <strong>Released:</strong> ${movie.year} </div>
+                <div class="my-4 mx-2 innerDescription"> <strong>Description:</strong> ${movie.plot}
+                </div>
+                <div class="my-4 mx-2 innerText movieDirected"><strong>Directed by:</strong>${movie.director}</div>
+                <div class="my-4 mx-2 innerText movieActors"><strong>Actors:</strong> ${movie.actors}</div>
+                <div class="my-4 mx-2 innerText movieGenre"><strong>Genres:</strong> ${movie.genre}</div>
             </div>
-            <div class="my-4 mx-2 innerText movieDirected"><strong>Directed by:</strong>${movie.director}</div>
-            <div class="my-4 mx-2 innerText movieActors"><strong>Actors:</strong> ${movie.actors}</div>
-            <div class="my-4 mx-2 innerText movieGenre"><strong>Genres:</strong> ${movie.genre}</div>
-            
+            <div class="d-flex justify-content-between align-items-center">
+                <button id="edit-btn-${movie.id}" class="editBtn btn text-white">Edit</button>
+                <button id="delete-btn-${movie.id}" class="deleteBtn btn text-white">Delete</button>
+            </div>
         </div>
-      
-        </div>`).append(`<div class="d-flex justify-content-between align-items-center">
-            <button id="edit-btn-${movie.id}" class="editBtn btn text-white">Edit</button>
-            <button id="delete-btn-${movie.id}" class="deleteBtn btn text-white">Delete</button>
-</div>
-`)
+        `).append()
         addDeleteBtn(movie);
         addEditBtn(movie);
         $(this).off("click");
@@ -73,7 +73,6 @@ function revertClick(movie){
     $(`#movie-${movie.id} *:first-child`).first().click(function (){
 
         $(`#movie-${movie.id}`).html(`<img src=${movie.poster} class="moviePictures ">`)
-            .toggleClass('d-flex justify-content-center');
         $(this).off("click");
         firstClick(movie);
     })
