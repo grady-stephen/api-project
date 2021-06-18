@@ -121,34 +121,16 @@ function scrollToTarget() {
 
 
 function putData(movie){
-    $("#submitForm").attr('id', "putBtn");
-    let title = $("#titleInput").val( `${movie.title.toUpperCase()}`);
-    let rating = $("#ratingInput").find(`#value${movie.rating}`).attr('selected', "selected");
-    let actors = $("#actors-input").val( `${movie.actors}`);
-    let director = $("#directorInput").val( `${movie.director}`);
-    let plot = $("#plotInput").val( `${movie.plot}`);
-    let year = $("#releaseInput").val( `${movie.year}`);
-   let genre = $("#genreInput").val( `${movie.genre}`);
 
-$("#putBtn").click(function(){
     $.ajax({
         url: `https://capable-habitual-contraption.glitch.me/movies/${movie.id}`,
         type: "PUT",
-        data: {
-            title: title,
-            rating: rating,
-            actors: actors,
-            director: director,
-            plot: plot,
-            year: year,
-            genre: genre,
-        },
+        data: movie,
         success: function () {
             console.log("PUT");
             getMovies();
         }
     })
-})
 
 }
 
@@ -168,6 +150,34 @@ $("#putBtn").click(function(){
             scrollToTarget();
             $("#formTitle").text("Edit Movie:");
             console.log(movie.id);
-            putData(movie);
+            fillEditForm(movie);
         })
+    }
+
+    function fillEditForm(movie){
+        $("#submitForm").attr('id', "putBtn");
+        $("#titleInput").val( `${movie.title.toUpperCase()}`);
+        $("#ratingInput").find(`#value${movie.rating}`).attr('selected', "selected");
+        $("#actors-input").val( `${movie.actors}`);
+        $("#directorInput").val( `${movie.director}`);
+        $("#plotInput").val( `${movie.plot}`);
+        $("#releaseInput").val( `${movie.year}`);
+        $("#genreInput").val( `${movie.genre}`);
+        buildPutMovie();
+
+    }
+
+    function buildPutMovie(){
+    $("#putBtn").click(function(){
+        let movie = {
+            title: $("#titleInput").val(),
+            rating: $("#ratingInput").val(),
+            actors: $("#actors-input").val(),
+            director: $("#directorInput").val(),
+            plot: $("#plotInput").val(),
+            year: $("#releaseInput").val(),
+            genre: $("#genreInput").val(),
+        }
+        putData(movie)
+    })
     }
