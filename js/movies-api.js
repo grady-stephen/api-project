@@ -188,7 +188,7 @@ addAddBtn()
     function buildPutMovie(movie){
     $("#putBtn").off("click")
     $("#putBtn").click(function(){
-        let movie = {
+        let movieObj = {
             title: $("#titleInput").val(),
             rating: $("#ratingInput").val(),
             actors: $("#actors-input").val(),
@@ -196,10 +196,10 @@ addAddBtn()
             plot: $("#plotInput").val(),
             year: $("#releaseInput").val(),
             genre: $("#genreInput").val(),
-            poster: movie.poster,
             id: movie.id,
+            poster: movie.poster
         }
-        putData(movie)
+        putData(movieObj)
         $("#putBtn").hide()
         clearForm()
     })
@@ -230,7 +230,6 @@ addAddBtn()
                 plot: $("#plotInput").val(),
                 year: $("#releaseInput").val(),
                 genre: $("#genreInput").val(),
-                poster: "https://via.placeholder.com/300x500",
             }
             postData(movie)
             $("#addBtn").hide()

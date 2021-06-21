@@ -25,9 +25,13 @@ h1 {
 }
 .pictureBorder{
     width: 300px;
-    height: 500px;
+    height: 600px;
     border: 2px solid #72147E!important;
     background-image: linear-gradient(#FA9905, #FF5200);
+
+}
+.pictureBorder * {
+    font-size: 25px;
 }
 .movieDescription {
     margin: 40px 0;
