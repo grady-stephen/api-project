@@ -9,6 +9,8 @@
 
 #form-container{
     display: none;
+    width: 65%;
+    margin: auto;
 }
 #putBtn{
     display: none;
@@ -17,8 +19,8 @@
     display: none;
 }
 .pictureBorder{
-    width: 75%;
-    height: 50%;
+    width: 300px;
+    height: 500px;
     border: 2px solid #72147E!important;
     background-image: linear-gradient(#FA9905, #FF5200);
 }
