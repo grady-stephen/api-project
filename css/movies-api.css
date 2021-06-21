@@ -61,6 +61,11 @@ body {
     color: white;
     text-align: center;
 
+
+}
+
+#header1{
+    font-size: 75px;
 }
 #startAddMovie{
     margin: 0px auto 50px auto;
